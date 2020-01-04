@@ -1,10 +1,10 @@
 import React from "react";
 import "./App.css";
 
-import profile from "./assets/download.jpg";
+import TechList from "./components/TechList";
 
 const App = () => {
-  return <img src={profile} />;
+  return <TechList />;
 };
 
 export default App;
