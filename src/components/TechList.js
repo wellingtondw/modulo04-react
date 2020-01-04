@@ -15,11 +15,18 @@ const TechList = () => {
     setNewTech("");
   };
 
+  const handleDelete = index => {
+    setTechs(techs.filter((tech, i) => i !== index));
+  };
+
   return (
     <form onSubmit={handleSubmit}>
       <ul>
-        {techs.map(tech => (
-          <li key={tech}>{tech}</li>
+        {techs.map((tech, index) => (
+          <li key={tech}>
+            {tech}
+            <button onClick={() => handleDelete(index)}>Remover</button>
+          </li>
         ))}
         <input type="text" onChange={handleInputChange} value={newTech} />
       </ul>
