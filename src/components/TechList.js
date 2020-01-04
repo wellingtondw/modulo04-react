@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import TechItem from "./TechItem";
 const TechList = () => {
   const [techs, setTechs] = useState(["Node.js", "ReactJS", "React Native"]);
   const [newTech, setNewTech] = useState("");
@@ -23,10 +23,11 @@ const TechList = () => {
     <form onSubmit={handleSubmit}>
       <ul>
         {techs.map((tech, index) => (
-          <li key={tech}>
-            {tech}
-            <button onClick={() => handleDelete(index)}>Remover</button>
-          </li>
+          <TechItem
+            key={index}
+            tech={tech}
+            handleDelete={() => handleDelete(index)}
+          />
         ))}
         <input type="text" onChange={handleInputChange} value={newTech} />
       </ul>
